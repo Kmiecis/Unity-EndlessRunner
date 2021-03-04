@@ -1,12 +1,5 @@
 {
   "dependencies": {
-    "com.kmiecis.unity.common": {
-      "version": "git://github.com/Kmiecis/Unity-Common",
-      "depth": 0,
-      "source": "git",
-      "dependencies": {},
-      "hash": "614d8d7bc2fcc4291e80dff42a884cbedc791230"
-    },
     "com.unity.render-pipelines.core": {
       "version": "7.5.3",
       "depth": 1,
