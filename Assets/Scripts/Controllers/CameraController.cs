@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace Game
 {
-    public class CameraController : SingletonBehaviour<CameraController>
+    public class CameraController : MonoBehaviour
     {
         public Camera mainCamera;
 

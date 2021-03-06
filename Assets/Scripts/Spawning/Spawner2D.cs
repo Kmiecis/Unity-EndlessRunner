@@ -49,7 +49,7 @@ namespace Game
 
         private void Start()
         {
-            m_CameraController = Controllers.CameraController;
+            m_CameraController = Controllers.Get<CameraController>();
 
             Initialize();
         }

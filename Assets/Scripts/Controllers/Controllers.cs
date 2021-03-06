@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using UnityEngine;
+using Common;
 
 namespace Game
 {
@@ -9,19 +10,20 @@ namespace Game
         [SerializeField] protected Component[] m_Controllers;
 
         private static Dictionary<Type, Component> m_ControllersDictionary;
-        
-        [SerializeField] protected CameraController m_CameraControllerPrefab;
 
-        private static CameraController m_CameraController;
-
-        public static CameraController CameraController
+        public static T Get<T>() where T : Component
         {
-            get
+            var type = typeof(T);
+            if (m_ControllersDictionary.TryGetValue(type, out Component component))
             {
-                if (m_CameraController == null)
-                    m_CameraController = Instantiate(Instance.m_CameraControllerPrefab, Instance.transform);
-                return m_CameraController;
+                return component as T;
             }
+            if (Instance.m_Controllers.TryFind(c => c is T, out component))
+            {
+                m_ControllersDictionary[type] = component;
+                return component as T;
+            }
+            return default;
         }
     }
 }
