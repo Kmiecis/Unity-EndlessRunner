@@ -8,7 +8,7 @@ namespace Game
     {
         [SerializeField] protected Component[] m_ControllersPrefabs;
 
-        private static Dictionary<Type, Component> m_ControllersDictionary;
+        private static Dictionary<Type, Component> m_ControllersDictionary = new Dictionary<Type, Component>();
 
         public static bool TryGet<T>(out T controller)
             where T : Component
