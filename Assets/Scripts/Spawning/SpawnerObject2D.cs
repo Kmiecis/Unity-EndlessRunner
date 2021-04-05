@@ -28,12 +28,33 @@ namespace Game
             {
                 IncludeCollider(colliders[i]);
             }
+
+            if (TryGetComponent(out SpriteRenderer spriteRenderer))
+            {
+                IncludeSpriteRenderer(spriteRenderer);
+            }
+
+            var spriteRenderers = GetComponentsInChildren<SpriteRenderer>();
+            for (int i = 0; spriteRenderers != null && i < spriteRenderers.Length; i++)
+            {
+                IncludeSpriteRenderer(spriteRenderers[i]);
+            }
         }
 
         private void IncludeCollider(Collider2D collider)
         {
             var position = collider.transform.position;
             var bounds = collider.bounds;
+            var min = bounds.min + position;
+            var max = bounds.max + position;
+
+            m_Range.Include(min, max);
+        }
+
+        private void IncludeSpriteRenderer(SpriteRenderer spriteRenderer)
+        {
+            var position = spriteRenderer.transform.position;
+            var bounds = spriteRenderer.bounds;
             var min = bounds.min + position;
             var max = bounds.max + position;
 

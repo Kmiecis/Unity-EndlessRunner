@@ -14,7 +14,17 @@ namespace Game
         private void Initialize()
         {
             var spawnerObject = poolerProvider.GetPooler().Borrow() as SpawnerObject2D;
-            spawnerObject.transform.position = Vector2.zero;
+            var spawnerObjectInitialPosition = Vector2.zero;
+            var spawnerObjectMinX = spawnerObject.Min.x;
+            var spawnMinX = m_CameraController.Min.x;
+            while (spawnerObjectMinX > spawnMinX)
+            {
+                var spawnerObjectSizeX = spawnerObject.Size.x;
+                spawnerObjectInitialPosition.x -= spawnerObjectSizeX;
+                spawnerObjectMinX -= spawnerObjectSizeX;
+            }
+
+            spawnerObject.transform.position = spawnerObjectInitialPosition;
             m_SpawnerObjects.Add(spawnerObject);
         }
 
@@ -28,7 +38,7 @@ namespace Game
             {
                 var newSpawnerObject = poolerProvider.GetPooler().Borrow() as SpawnerObject2D;
                 var newSizeX = newSpawnerObject.Size.x;
-                newSpawnerObject.transform.position = new Vector2(lastMaxX + newSizeX, 0.0f);
+                newSpawnerObject.transform.position = new Vector2(lastMaxX + newSizeX * 0.5f, 0.0f);
                 m_SpawnerObjects.Add(newSpawnerObject);
             }
         }
@@ -41,15 +51,14 @@ namespace Game
 
             if (firstMaxX < recycleMinX)
             {
-                m_SpawnerObjects.SwapLast(0);
-                m_SpawnerObjects.RemoveLast();
+                m_SpawnerObjects.RemoveAt(0);
                 firstObject.Return();
             }
         }
 
         private void Start()
         {
-            m_CameraController = Controllers.Get<CameraController>();
+            m_CameraController = CameraController.Instance;
 
             Initialize();
         }

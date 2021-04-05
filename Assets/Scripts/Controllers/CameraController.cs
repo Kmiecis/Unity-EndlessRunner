@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace Game
 {
-    public class CameraController : MonoBehaviour
+    public class CameraController : SingletonBehaviour<CameraController>
     {
         [SerializeField] protected Camera m_MainCamera;
         [ReadOnlyField] [SerializeField] protected float m_Zoom;
