@@ -23,8 +23,7 @@ namespace Game
                 return m_Instance;
             }
         }
-
-
+        
         protected virtual void Awake()
         {
             if (m_Instance == null)

@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace Game
 {
-    public class ScoreController : MonoBehaviour
+    public class ScoreController : SingletonBehaviour<ScoreController>
     {
         public event Action<int> OnScoreChanged;
 

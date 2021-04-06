@@ -11,6 +11,8 @@ GameObject:
   - component: {fileID: 6554769050275100559}
   - component: {fileID: 8486085592580121720}
   - component: {fileID: 5149215510216791244}
+  - component: {fileID: -31865992612360863}
+  - component: {fileID: -2058564905828198685}
   m_Layer: 0
   m_Name: DesertHills
   m_TagString: Untagged
@@ -98,3 +100,39 @@ MonoBehaviour:
   m_Range:
     min: {x: 0, y: 0}
     max: {x: 0, y: 0}
+--- !u!50 &-31865992612360863
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7043002250509869339}
+  m_BodyType: 1
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
+--- !u!114 &-2058564905828198685
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7043002250509869339}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cfaab8e10dde308409e13e22aaf13b8f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Rigidbody: {fileID: -31865992612360863}
+  speed: 1
+  direction: {x: -1, y: 0}

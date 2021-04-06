@@ -6,9 +6,10 @@ namespace Game
 {
     public class Spawner2D : MonoBehaviour
     {
+        private static CameraController CameraController => CameraController.Instance;
+        
         public APoolerProvider poolerProvider;
 
-        private CameraController m_CameraController;
         private List<SpawnerObject2D> m_SpawnerObjects = new List<SpawnerObject2D>();
 
         private void Initialize()
@@ -16,7 +17,7 @@ namespace Game
             var spawnerObject = poolerProvider.GetPooler().Borrow() as SpawnerObject2D;
             var spawnerObjectInitialPosition = Vector2.zero;
             var spawnerObjectMinX = spawnerObject.Min.x;
-            var spawnMinX = m_CameraController.Min.x;
+            var spawnMinX = CameraController.Min.x;
             while (spawnerObjectMinX > spawnMinX)
             {
                 var spawnerObjectSizeX = spawnerObject.Size.x;
@@ -32,7 +33,7 @@ namespace Game
         {
             var lastObject = m_SpawnerObjects.Last();
             var lastMaxX = lastObject.Max.x;
-            var spawnMaxX = m_CameraController.Max.x;
+            var spawnMaxX = CameraController.Max.x;
 
             if (lastMaxX < spawnMaxX)
             {
@@ -47,7 +48,7 @@ namespace Game
         {
             var firstObject = m_SpawnerObjects.First();
             var firstMaxX = firstObject.Max.x;
-            var recycleMinX = m_CameraController.Min.x;
+            var recycleMinX = CameraController.Min.x;
 
             if (firstMaxX < recycleMinX)
             {
@@ -58,8 +59,6 @@ namespace Game
 
         private void Start()
         {
-            m_CameraController = CameraController.Instance;
-
             Initialize();
         }
 

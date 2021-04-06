@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 namespace Game
 {
-    public class TimeController : MonoBehaviour
+    public class TimeController : SingletonBehaviour<TimeController>
     {
         private class TimeOverride
         {
