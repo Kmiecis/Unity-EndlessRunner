@@ -1,16 +1,16 @@
-using Common;
+﻿using Common;
 using UnityEngine;
 
 namespace Game
 {
-    public class IteratingProbabilityPoolers : APoolerProvider
+    public class IteratingPoolers : APoolerProvider
     {
-        public ProbabilityPoolers[] poolers;
+        public Pooler[] poolers;
         [SerializeField] [ReadOnlyField] protected int m_CurrentIndex;
 
-        protected Pooler GetPooler(int index)
+        public override Pooler GetPooler()
         {
-            return poolers[index].GetPooler();
+            return poolers[GetAndIncrCurrentIndex()];
         }
 
         protected int GetAndIncrCurrentIndex()
@@ -18,11 +18,6 @@ namespace Game
             var result = m_CurrentIndex;
             m_CurrentIndex = Mathx.NextIndex(m_CurrentIndex, poolers.Length);
             return result;
-        }
-
-        public override Pooler GetPooler()
-        {
-            return GetPooler(GetAndIncrCurrentIndex());
         }
     }
 }

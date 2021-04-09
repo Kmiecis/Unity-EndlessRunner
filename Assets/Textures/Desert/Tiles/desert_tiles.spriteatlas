@@ -1,0 +1,111 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!687078895 &4343727234628468602
+SpriteAtlas:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: desert_tiles
+  m_EditorData:
+    serializedVersion: 2
+    textureSettings:
+      serializedVersion: 2
+      anisoLevel: 1
+      compressionQuality: 50
+      maxTextureSize: 2048
+      textureCompression: 0
+      filterMode: 1
+      generateMipMaps: 0
+      readable: 0
+      crunchedCompression: 0
+      sRGB: 1
+    platformSettings: []
+    packingSettings:
+      serializedVersion: 2
+      padding: 4
+      blockOffset: 1
+      allowAlphaSplitting: 0
+      enableRotation: 1
+      enableTightPacking: 1
+    variantMultiplier: 1
+    packables:
+    - {fileID: 102900000, guid: 1fde4ba616380524a86099940fa85f99, type: 3}
+    bindAsDefault: 1
+  m_MasterAtlas: {fileID: 0}
+  m_PackedSprites:
+  - {fileID: 21300000, guid: 1a879370df1469943bd7949314119f4e, type: 3}
+  - {fileID: 21300000, guid: 7802acf06d2e8e549b0629bbe1d463c8, type: 3}
+  - {fileID: 21300000, guid: 44e5f641231d22b4f8edc78835fa9412, type: 3}
+  - {fileID: 21300000, guid: 5c0d5d511e5b38642ab1ba05dbb6791c, type: 3}
+  - {fileID: 21300000, guid: addb46035a5eba24e876cd6e78c42a52, type: 3}
+  - {fileID: 21300000, guid: 53bb0193a71a53946a288b6d44d5643e, type: 3}
+  - {fileID: 21300000, guid: 1dec13f348b136646a1a784b8ec3019c, type: 3}
+  - {fileID: 21300000, guid: 6263e1b4e018e0943a5aedffbe9485e4, type: 3}
+  - {fileID: 21300000, guid: 1329858560e5ff04e9bd894fb51c0870, type: 3}
+  - {fileID: 21300000, guid: ca31bc262e22a4248b852df4c3893e81, type: 3}
+  - {fileID: 21300000, guid: 66e21c3693840a74c8dcb59d7c343af8, type: 3}
+  - {fileID: 21300000, guid: cba35366898f2664f882472049f89466, type: 3}
+  - {fileID: 21300000, guid: 7c532966d6a07cf44897353419b726ca, type: 3}
+  - {fileID: 21300000, guid: e5f27c86b715e6146a7820f3ffcbfc0e, type: 3}
+  - {fileID: 21300000, guid: 058362d6329b46741a188a25aa987ce0, type: 3}
+  - {fileID: 21300000, guid: c9003cd688008874389a13785c62604e, type: 3}
+  - {fileID: 21300000, guid: 887d9ed732e373744a7a36bceaf2838b, type: 3}
+  - {fileID: 21300000, guid: 83704578563d012458274450e6a36676, type: 3}
+  - {fileID: 21300000, guid: 95c62d98977bfbf41882162e804b66b2, type: 3}
+  - {fileID: 21300000, guid: a8997ed8851652c49bbe368e62f33702, type: 3}
+  - {fileID: 21300000, guid: 5afb1939b2abb0c4793935ae7c030535, type: 3}
+  - {fileID: 21300000, guid: 01d97f390ca7ae144993f88ffcdfd305, type: 3}
+  - {fileID: 21300000, guid: ddfa2279cb5863444945bdbf92800b2f, type: 3}
+  - {fileID: 21300000, guid: 1c3aa77912eeee546be8e285d53a7d38, type: 3}
+  - {fileID: 21300000, guid: 4a9bcdf9ddf90ff4695a6b7569e8671c, type: 3}
+  - {fileID: 21300000, guid: c63e42eb129ada14d8317273d6521ea6, type: 3}
+  - {fileID: 21300000, guid: 5ace692c5347d8d44afed4f3479b36ce, type: 3}
+  - {fileID: 21300000, guid: f41f3a6cfcea47f4580ab20c97066301, type: 3}
+  - {fileID: 21300000, guid: 0d1c87fcdd64c2447a607b295be180f2, type: 3}
+  - {fileID: 21300000, guid: b4bf2e1db29a38d42ac7b2181b3a14e2, type: 3}
+  - {fileID: 21300000, guid: d6bdb03dd97aa484eb595edfe2eb4ea0, type: 3}
+  - {fileID: 21300000, guid: 36b0ce9d61367a047b0f2fd09290139c, type: 3}
+  - {fileID: 21300000, guid: 946b81ad92b6d2841b6f7a0d859dc287, type: 3}
+  - {fileID: 21300000, guid: 250a12de9e406cf438e524584811c6e1, type: 3}
+  - {fileID: 21300000, guid: 3f8ca51fe76b83546aff53332a5ac8d2, type: 3}
+  - {fileID: 21300000, guid: 9951ee5fe8017ea4189db785caa58895, type: 3}
+  m_PackedSpriteNamesToIndex:
+  - sand_corner_top_right
+  - sand_platform_half
+  - dirt_with_sand_triangle_right
+  - dirt_rounded
+  - dirt_slice_lb
+  - dirt_2
+  - sand_platform_rounded_left
+  - sand_corner_bottom_right
+  - sand_platform_sliced_right
+  - dirt_slice_lt
+  - sand_corner_top_left
+  - sand_left
+  - dirt_with_sand_triangle_left
+  - sand_platform_rounded_right
+  - sand_platform
+  - sand_triangle_right
+  - sand_platform_sliced_left
+  - sand_platform_half_left
+  - dirt_sliced
+  - sand_top_left
+  - sand_platform_half_middle
+  - sand_top_right
+  - dirt
+  - sand_platform_right
+  - sand_top
+  - sand_bottom_left
+  - sand_bottom
+  - sand_corner_bottom_left
+  - sand_platform_left
+  - sand_bottom_right
+  - sand_platform_half_right
+  - dirt_slice_rt
+  - sand
+  - sand_right
+  - sand_triangle_left
+  - dirt_slice_rb
+  m_Tag: desert_tiles
+  m_IsVariant: 0

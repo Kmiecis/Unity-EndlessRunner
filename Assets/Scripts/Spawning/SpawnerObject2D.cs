@@ -43,20 +43,18 @@ namespace Game
 
         private void IncludeCollider(Collider2D collider)
         {
-            var position = collider.transform.position;
             var bounds = collider.bounds;
-            var min = bounds.min + position;
-            var max = bounds.max + position;
+            var min = bounds.min;
+            var max = bounds.max;
 
             m_Range.Include(min, max);
         }
 
         private void IncludeSpriteRenderer(SpriteRenderer spriteRenderer)
         {
-            var position = spriteRenderer.transform.position;
             var bounds = spriteRenderer.bounds;
-            var min = bounds.min + position;
-            var max = bounds.max + position;
+            var min = bounds.min;
+            var max = bounds.max;
 
             m_Range.Include(min, max);
         }
