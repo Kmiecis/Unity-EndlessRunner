@@ -1,17 +1,10 @@
-using UnityEngine;
-
 namespace Game
 {
-    public class GameObjectsDisableActivator : AOnDisable
+    public class GameObjectsDisableActivator : GameObjectsActivator, IOnDisable
     {
-        public GameObject[] gameObjects;
-
-        protected override void OnDisable()
+        public void OnDisable()
         {
-            for (int i = 0; gameObjects != null && i < gameObjects.Length; i++)
-            {
-                gameObjects[i].SetActive(true);
-            }
+            Activate();
         }
     }
 }

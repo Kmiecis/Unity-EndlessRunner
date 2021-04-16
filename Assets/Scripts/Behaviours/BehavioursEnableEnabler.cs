@@ -1,17 +1,10 @@
-using UnityEngine;
-
 namespace Game
 {
-    public class BehavioursEnableEnabler : AOnEnable
+    public class BehavioursEnableEnabler : BehavioursEnabler, IOnEnable
     {
-        public Behaviour[] behaviours;
-
-        protected override void OnEnable()
+        public void OnEnable()
         {
-            for (int i = 0; behaviours != null && i < behaviours.Length; i++)
-            {
-                behaviours[i].enabled = true;
-            }
+            Enable();
         }
     }
 }

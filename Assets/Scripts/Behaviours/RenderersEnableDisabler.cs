@@ -1,17 +1,10 @@
-using UnityEngine;
-
 namespace Game
 {
-    public class RenderersEnableDisabler : AOnEnable
+    public class RenderersEnableDisabler : RenderersEnabler, IOnEnable
     {
-        public Renderer[] renderers;
-
-        protected override void OnEnable()
+        public void OnEnable()
         {
-            for (int i = 0; renderers != null && i < renderers.Length; i++)
-            {
-                renderers[i].enabled = false;
-            }
+            Disable();
         }
     }
 }
