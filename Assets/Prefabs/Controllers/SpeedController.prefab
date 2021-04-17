@@ -43,9 +43,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 31edc9162b6b08a4ca3d7a76d24f3974, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_StartSpeed: 1
-  m_TargetSpeed: 3
-  m_Acceleration: 0.01
-  m_WindUpDuration: 2
-  m_WindDownDuration: 2
+  runOnStart: 1
+  startSpeed: 1
+  targetSpeed: 3
+  acceleration: 0.01
+  windUpDuration: 2
+  windDownDuration: 2
   m_CurrentSpeed: 0

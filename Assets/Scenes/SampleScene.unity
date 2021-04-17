@@ -851,11 +851,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 997325422}
     m_Modifications:
-    - target: {fileID: 3073009038558578084, guid: 066fb36a15b682d4f9fcd6463117c5a3,
-        type: 3}
-      propertyPath: runOnStart
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 3644798873272062845, guid: 066fb36a15b682d4f9fcd6463117c5a3,
         type: 3}
       propertyPath: m_RootOrder
@@ -924,6 +919,12 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1879982609}
   m_PrefabAsset: {fileID: 0}
+--- !u!20 &1979358868 stripped
+Camera:
+  m_CorrespondingSourceObject: {fileID: 2993118545261387111, guid: 4dc7e8fa882696f41953ef65ac10426f,
+    type: 3}
+  m_PrefabInstance: {fileID: 582222617}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &2073018444
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -991,11 +992,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: CameraController
       objectReference: {fileID: 0}
-    - target: {fileID: 2128667996339634906, guid: 77dd895f56c05994ebcdf04ffe464456,
+    - target: {fileID: 2128667996339634908, guid: 77dd895f56c05994ebcdf04ffe464456,
         type: 3}
-      propertyPath: orthographic size
-      value: 3.5
-      objectReference: {fileID: 0}
+      propertyPath: m_Cameras.Array.data[0]
+      value: 
+      objectReference: {fileID: 1979358868}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 77dd895f56c05994ebcdf04ffe464456, type: 3}
 --- !u!4 &2073018445 stripped
@@ -1070,6 +1071,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 8688164950954551063, guid: 465314c03065b144b9552626d56fd5a1,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 465314c03065b144b9552626d56fd5a1, type: 3}

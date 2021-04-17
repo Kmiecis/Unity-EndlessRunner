@@ -1,6 +1,6 @@
 ﻿namespace Game
 {
-    public class Pick2D : AOnPlayerCollisionEnter2D
+    public class Pick2D : AOnPlayerTriggerEnter2D
     {
         public RenderersEnabler renderersEnabler;
         public BehavioursEnabler behavioursEnabler;

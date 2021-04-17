@@ -8,7 +8,7 @@ namespace Game
     {
         public event Action<int> OnScoreChanged;
 
-        [SerializeField] protected float m_Acceleration = 0.25f;
+        [SerializeField] protected float m_Acceleration = 4.0f;
         [SerializeField] [ReadOnlyField] protected int m_CurrentScore;
 
         protected float m_ScoreAccumulator;

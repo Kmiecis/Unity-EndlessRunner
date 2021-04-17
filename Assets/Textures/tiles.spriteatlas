@@ -6,7 +6,7 @@ SpriteAtlas:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: desert_tiles
+  m_Name: tiles
   m_EditorData:
     serializedVersion: 2
     textureSettings:
@@ -31,9 +31,12 @@ SpriteAtlas:
     variantMultiplier: 1
     packables:
     - {fileID: 102900000, guid: 1fde4ba616380524a86099940fa85f99, type: 3}
+    - {fileID: 102900000, guid: bc2e6a4652103e44183e3c6d52e9445b, type: 3}
+    - {fileID: 102900000, guid: 4ee57fc8b962032489a7d47c19eeb05c, type: 3}
     bindAsDefault: 1
   m_MasterAtlas: {fileID: 0}
   m_PackedSprites:
+  - {fileID: 21300000, guid: 744865403b82c5b42a4d6f421448a5f1, type: 3}
   - {fileID: 21300000, guid: 1a879370df1469943bd7949314119f4e, type: 3}
   - {fileID: 21300000, guid: 7802acf06d2e8e549b0629bbe1d463c8, type: 3}
   - {fileID: 21300000, guid: 44e5f641231d22b4f8edc78835fa9412, type: 3}
@@ -42,6 +45,8 @@ SpriteAtlas:
   - {fileID: 21300000, guid: 53bb0193a71a53946a288b6d44d5643e, type: 3}
   - {fileID: 21300000, guid: 1dec13f348b136646a1a784b8ec3019c, type: 3}
   - {fileID: 21300000, guid: 6263e1b4e018e0943a5aedffbe9485e4, type: 3}
+  - {fileID: 21300000, guid: 0b38b33563ec70d409d5924dbeabd1b6, type: 3}
+  - {fileID: 21300000, guid: 6ce0c07522a6bdc4391beb61d26fb098, type: 3}
   - {fileID: 21300000, guid: 1329858560e5ff04e9bd894fb51c0870, type: 3}
   - {fileID: 21300000, guid: ca31bc262e22a4248b852df4c3893e81, type: 3}
   - {fileID: 21300000, guid: 66e21c3693840a74c8dcb59d7c343af8, type: 3}
@@ -60,6 +65,7 @@ SpriteAtlas:
   - {fileID: 21300000, guid: 1c3aa77912eeee546be8e285d53a7d38, type: 3}
   - {fileID: 21300000, guid: 4a9bcdf9ddf90ff4695a6b7569e8671c, type: 3}
   - {fileID: 21300000, guid: c63e42eb129ada14d8317273d6521ea6, type: 3}
+  - {fileID: 21300000, guid: 226cdcebc8fbf1648b5301b970aa2d69, type: 3}
   - {fileID: 21300000, guid: 5ace692c5347d8d44afed4f3479b36ce, type: 3}
   - {fileID: 21300000, guid: f41f3a6cfcea47f4580ab20c97066301, type: 3}
   - {fileID: 21300000, guid: 0d1c87fcdd64c2447a607b295be180f2, type: 3}
@@ -71,6 +77,7 @@ SpriteAtlas:
   - {fileID: 21300000, guid: 3f8ca51fe76b83546aff53332a5ac8d2, type: 3}
   - {fileID: 21300000, guid: 9951ee5fe8017ea4189db785caa58895, type: 3}
   m_PackedSpriteNamesToIndex:
+  - crate_x
   - sand_corner_top_right
   - sand_platform_half
   - dirt_with_sand_triangle_right
@@ -79,6 +86,8 @@ SpriteAtlas:
   - dirt_2
   - sand_platform_rounded_left
   - sand_corner_bottom_right
+  - coin
+  - circle
   - sand_platform_sliced_right
   - dirt_slice_lt
   - sand_corner_top_left
@@ -97,6 +106,7 @@ SpriteAtlas:
   - sand_platform_right
   - sand_top
   - sand_bottom_left
+  - crate
   - sand_bottom
   - sand_corner_bottom_left
   - sand_platform_left
@@ -107,5 +117,5 @@ SpriteAtlas:
   - sand_right
   - sand_triangle_left
   - dirt_slice_rb
-  m_Tag: desert_tiles
+  m_Tag: tiles
   m_IsVariant: 0
