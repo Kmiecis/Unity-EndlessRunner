@@ -46,6 +46,7 @@ SpriteAtlas:
   - {fileID: 21300000, guid: 1dec13f348b136646a1a784b8ec3019c, type: 3}
   - {fileID: 21300000, guid: 6263e1b4e018e0943a5aedffbe9485e4, type: 3}
   - {fileID: 21300000, guid: 0b38b33563ec70d409d5924dbeabd1b6, type: 3}
+  - {fileID: 21300000, guid: 00813d3552a48b24abf44c63f8d43484, type: 3}
   - {fileID: 21300000, guid: 6ce0c07522a6bdc4391beb61d26fb098, type: 3}
   - {fileID: 21300000, guid: 1329858560e5ff04e9bd894fb51c0870, type: 3}
   - {fileID: 21300000, guid: ca31bc262e22a4248b852df4c3893e81, type: 3}
@@ -70,10 +71,12 @@ SpriteAtlas:
   - {fileID: 21300000, guid: f41f3a6cfcea47f4580ab20c97066301, type: 3}
   - {fileID: 21300000, guid: 0d1c87fcdd64c2447a607b295be180f2, type: 3}
   - {fileID: 21300000, guid: b4bf2e1db29a38d42ac7b2181b3a14e2, type: 3}
+  - {fileID: 21300000, guid: 530fca2d141face4c9168906b3a6712b, type: 3}
   - {fileID: 21300000, guid: d6bdb03dd97aa484eb595edfe2eb4ea0, type: 3}
   - {fileID: 21300000, guid: 36b0ce9d61367a047b0f2fd09290139c, type: 3}
   - {fileID: 21300000, guid: 946b81ad92b6d2841b6f7a0d859dc287, type: 3}
   - {fileID: 21300000, guid: 250a12de9e406cf438e524584811c6e1, type: 3}
+  - {fileID: 21300000, guid: be2906eeaf1137d4684d0e3fb4009d05, type: 3}
   - {fileID: 21300000, guid: 3f8ca51fe76b83546aff53332a5ac8d2, type: 3}
   - {fileID: 21300000, guid: 9951ee5fe8017ea4189db785caa58895, type: 3}
   m_PackedSpriteNamesToIndex:
@@ -87,6 +90,7 @@ SpriteAtlas:
   - sand_platform_rounded_left
   - sand_corner_bottom_right
   - coin
+  - spikes_1
   - circle
   - sand_platform_sliced_right
   - dirt_slice_lt
@@ -111,10 +115,12 @@ SpriteAtlas:
   - sand_corner_bottom_left
   - sand_platform_left
   - sand_bottom_right
+  - spikes
   - sand_platform_half_right
   - dirt_slice_rt
   - sand
   - sand_right
+  - spikes_2
   - sand_triangle_left
   - dirt_slice_rb
   m_Tag: tiles
