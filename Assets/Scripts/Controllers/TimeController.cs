@@ -103,13 +103,15 @@ namespace Game
             }
         }
 
-        private void Start()
+        protected override void Awake()
         {
+            base.Awake();
+
             m_InitialFixedDeltaTime = Time.fixedDeltaTime;
             m_InitialMaximumDeltaTime = Time.maximumDeltaTime;
             m_InitialMaximumParticleDeltaTime = Time.maximumParticleDeltaTime;
         }
-
+        
         private void Update()
         {
             UpdateRequests();
