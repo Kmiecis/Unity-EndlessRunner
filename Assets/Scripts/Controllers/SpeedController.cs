@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace Game
 {
-    public class SpeedController : SingletonBehaviour<SpeedController>
+    public class SpeedController : MonoBehaviour
     {
         public event Action<float> OnSpeedChanged;
 

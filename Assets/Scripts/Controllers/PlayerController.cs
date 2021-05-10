@@ -2,7 +2,7 @@
 
 namespace Game
 {
-    public class PlayerController : SingletonBehaviour<PlayerController>
+    public class PlayerController : MonoBehaviour
     {
         public GameObject playerPrefab;
 

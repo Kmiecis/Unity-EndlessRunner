@@ -2,7 +2,7 @@
 
 namespace Game
 {
-    public class UIController : SingletonBehaviour<UIController>
+    public class UIController : MonoBehaviour
     {
         [SerializeField] protected Canvas m_Canvas;
 

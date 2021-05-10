@@ -1,19 +1,26 @@
-﻿using UnityEngine;
+﻿using Common;
+using UnityEngine;
 
 namespace Game
 {
-    public class RestartController : SingletonBehaviour<RestartController>
+    public class RestartController : MonoBehaviour
     {
-        private static UIController UIController => UIController.Instance;
+        [Dependant]
+        private UIController m_UIController;
 
         public GameObject restartScreenPrefab;
 
         private bool m_IsRestarting;
         private GameObject m_RestartScreen;
 
+        private void Awake()
+        {
+            Dependencies.Bind(this);
+        }
+
         private void Start()
         {
-            m_RestartScreen = Instantiate(restartScreenPrefab, UIController.Canvas.transform);
+            m_RestartScreen = Instantiate(restartScreenPrefab, m_UIController.transform);
             m_RestartScreen.SetActive(m_IsRestarting);
         }
     }

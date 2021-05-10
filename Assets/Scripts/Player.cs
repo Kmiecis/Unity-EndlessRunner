@@ -16,8 +16,11 @@ namespace Game
         private readonly int JUMPING_ANIMATOR_ID = Animator.StringToHash("Jumping");
         private readonly int FALLING_ANIMATOR_ID = Animator.StringToHash("Falling");
 
-        private static SpeedController SpeedController => SpeedController.Instance;
-        private static InputController InputController => InputController.Instance;
+        [Dependant]
+        private SpeedController m_SpeedController;
+
+        [Dependant]
+        private InputController m_InputController;
 
         [SerializeField] protected Rigidbody2D m_Rigidbody;
         [SerializeField] protected Animator m_Animator;
@@ -71,7 +74,7 @@ namespace Game
         public float GetHorizontalVelocity()
         {
             if (IsSnared)
-                return -SpeedController.CurrentSpeed;
+                return -m_SpeedController.CurrentSpeed;
             if (IsOffset)
                 return offsetVelocity;
             return 0.0f;
@@ -138,10 +141,15 @@ namespace Game
             }
         }
 
+        private void Awake()
+        {
+            Dependencies.Bind(this);
+        }
+
         private void Start()
         {
-            InputController.OnMainActionDown += TryJump;
-            InputController.OnMainAction += TryJumpBoost;
+            m_InputController.OnMainActionDown += TryJump;
+            m_InputController.OnMainAction += TryJumpBoost;
         }
 
         private void Update()

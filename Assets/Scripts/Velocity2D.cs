@@ -1,10 +1,12 @@
-﻿using UnityEngine;
+﻿using Common;
+using UnityEngine;
 
 namespace Game
 {
     public class Velocity2D : MonoBehaviour
     {
-        private static SpeedController SpeedController => SpeedController.Instance;
+        [Dependant]
+        private SpeedController m_SpeedController;
 
         [SerializeField] protected Rigidbody2D m_Rigidbody;
 
@@ -22,15 +24,20 @@ namespace Game
         private void OnEnable()
         {
             if (m_Started)
-                SetVelocity(SpeedController.CurrentSpeed);
+                SetVelocity(m_SpeedController.CurrentSpeed);
+        }
+
+        private void Awake()
+        {
+            Dependencies.Bind(this);
         }
 
         private void Start()
         {
-            SpeedController.OnSpeedChanged += SetVelocity;
+            m_SpeedController.OnSpeedChanged += SetVelocity;
 
             m_Started = true;
-            SetVelocity(SpeedController.CurrentSpeed);
+            SetVelocity(m_SpeedController.CurrentSpeed);
         }
     }
 }

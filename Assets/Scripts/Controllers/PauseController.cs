@@ -1,12 +1,18 @@
-﻿using UnityEngine;
+﻿using Common;
+using UnityEngine;
 
 namespace Game
 {
-    public class PauseController : SingletonBehaviour<PauseController>
+    public class PauseController : MonoBehaviour
     {
-        private static UIController UIController => UIController.Instance;
-        private static InputController InputController => InputController.Instance;
-        private static TimeController TimeController => TimeController.Instance;
+        [Dependant]
+        private UIController m_UIController;
+
+        [Dependant]
+        private InputController m_InputController;
+
+        [Dependant]
+        private TimeController m_TimeController;
 
         public GameObject pauseScreenPrefab;
 
@@ -19,17 +25,22 @@ namespace Game
             m_PauseScreen.SetActive(m_IsPaused);
 
             if (m_IsPaused)
-                TimeController.SetOverride(0.0f);
+                m_TimeController.SetOverride(0.0f);
             else
-                TimeController.RemoveOverride();
+                m_TimeController.RemoveOverride();
+        }
+
+        private void Awake()
+        {
+            Dependencies.Bind(this);
         }
 
         private void Start()
         {
-            m_PauseScreen = Instantiate(pauseScreenPrefab, UIController.Canvas.transform);
+            m_PauseScreen = Instantiate(pauseScreenPrefab, m_UIController.Canvas.transform);
             m_PauseScreen.SetActive(m_IsPaused);
 
-            InputController.OnPauseActionDown += TogglePauseScreen;
+            m_InputController.OnPauseActionDown += TogglePauseScreen;
         }
     }
 }

@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace Game
 {
-    public class InputController : SingletonBehaviour<InputController>
+    public class InputController : MonoBehaviour
     {
         public event Action OnMainActionDown;
         public event Action OnMainAction;

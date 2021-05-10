@@ -1,20 +1,27 @@
-﻿using UnityEngine;
+﻿using Common;
+using UnityEngine;
 using UnityEngine.EventSystems;
 
 namespace Game
 {
     public class ClickHandler : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
     {
-        private static InputController InputController => InputController.Instance;
+        [Dependant]
+        private InputController m_InputController;
 
         public void OnPointerDown(PointerEventData eventData)
         {
-            InputController.SetMainButtonDown();
+            m_InputController.SetMainButtonDown();
         }
 
         public void OnPointerUp(PointerEventData eventData)
         {
-            InputController.SetMainButtonUp();
+            m_InputController.SetMainButtonUp();
+        }
+
+        private void Awake()
+        {
+            Dependencies.Bind(this);
         }
     }
 }

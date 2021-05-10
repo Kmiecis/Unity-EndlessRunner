@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 namespace Game
 {
-    public class TimeController : SingletonBehaviour<TimeController>
+    public class TimeController : MonoBehaviour
     {
         private class TimeOverride
         {
@@ -103,10 +103,8 @@ namespace Game
             }
         }
 
-        protected override void Awake()
+        private void Awake()
         {
-            base.Awake();
-
             m_InitialFixedDeltaTime = Time.fixedDeltaTime;
             m_InitialMaximumDeltaTime = Time.maximumDeltaTime;
             m_InitialMaximumParticleDeltaTime = Time.maximumParticleDeltaTime;
