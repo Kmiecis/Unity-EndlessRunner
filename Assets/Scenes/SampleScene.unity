@@ -587,7 +587,7 @@ MonoBehaviour:
     type: 3}
   restartControllerPrefab: {fileID: 8427560677652173981, guid: dbefb65b0953be344aba58fe27dcec6d,
     type: 3}
-  playerControllerPrefab: {fileID: 2931449844110373553, guid: 155091507d390264982a1adca419d8db,
+  playerPrefab: {fileID: 8688164950954551057, guid: 465314c03065b144b9552626d56fd5a1,
     type: 3}
 --- !u!4 &997325422
 Transform:

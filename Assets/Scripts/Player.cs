@@ -16,10 +16,10 @@ namespace Game
         private readonly int JUMPING_ANIMATOR_ID = Animator.StringToHash("Jumping");
         private readonly int FALLING_ANIMATOR_ID = Animator.StringToHash("Falling");
 
-        [Dependant]
+        [DependencyInject]
         private SpeedController m_SpeedController;
 
-        [Dependant]
+        [DependencyInject]
         private InputController m_InputController;
 
         [SerializeField] protected Rigidbody2D m_Rigidbody;

@@ -43,5 +43,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 78b464ea648da7d4192a2ccacbf99b1b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  restartScreenPrefab: {fileID: 8617089275516255728, guid: f32b00103b5872448ae7d188469caa3d,
+  m_RestartScreenPrefab: {fileID: -7870184758956210014, guid: f32b00103b5872448ae7d188469caa3d,
     type: 3}

@@ -3,25 +3,17 @@ using UnityEngine;
 
 namespace Game
 {
-    public class RestartController : MonoBehaviour
+    public class RestartController : DependantBehaviour
     {
-        [Dependant]
-        private UIController m_UIController;
+        [DependencyInstall, SerializeField]
+        protected RestartScreen m_RestartScreenPrefab;
 
-        public GameObject restartScreenPrefab;
+        [DependencyInject("OnRestartScreen")]
+        private RestartScreen m_RestartScreen;
 
-        private bool m_IsRestarting;
-        private GameObject m_RestartScreen;
-
-        private void Awake()
+        private void OnRestartScreen(RestartScreen restartScreen)
         {
-            Dependencies.Bind(this);
-        }
-
-        private void Start()
-        {
-            m_RestartScreen = Instantiate(restartScreenPrefab, m_UIController.transform);
-            m_RestartScreen.SetActive(m_IsRestarting);
+            restartScreen.IsRestarting = false;
         }
     }
 }

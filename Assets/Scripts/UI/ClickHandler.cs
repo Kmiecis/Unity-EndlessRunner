@@ -6,7 +6,7 @@ namespace Game
 {
     public class ClickHandler : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
     {
-        [Dependant]
+        [DependencyInject]
         private InputController m_InputController;
 
         public void OnPointerDown(PointerEventData eventData)

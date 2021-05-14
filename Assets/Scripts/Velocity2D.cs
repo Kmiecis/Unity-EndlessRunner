@@ -3,12 +3,13 @@ using UnityEngine;
 
 namespace Game
 {
-    public class Velocity2D : MonoBehaviour
+    public class Velocity2D : DependantBehaviour
     {
-        [Dependant]
+        [DependencyInject]
         private SpeedController m_SpeedController;
 
-        [SerializeField] protected Rigidbody2D m_Rigidbody;
+        [SerializeField]
+        protected Rigidbody2D m_Rigidbody;
 
         [Space(10)]
         public float speed = 1.0f;
@@ -26,12 +27,7 @@ namespace Game
             if (m_Started)
                 SetVelocity(m_SpeedController.CurrentSpeed);
         }
-
-        private void Awake()
-        {
-            Dependencies.Bind(this);
-        }
-
+        
         private void Start()
         {
             m_SpeedController.OnSpeedChanged += SetVelocity;

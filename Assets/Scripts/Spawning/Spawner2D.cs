@@ -6,7 +6,7 @@ namespace Game
 {
     public class Spawner2D : MonoBehaviour
     {
-        [Dependant]
+        [DependencyInject]
         private CameraController m_CameraController;
         
         public APoolerProvider poolerProvider;

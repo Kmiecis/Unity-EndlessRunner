@@ -5,7 +5,7 @@ namespace Game
 {
     public class Score2D : Pick2D
     {
-        [Dependant]
+        [DependencyInject]
         private ScoreController m_ScoreController;
 
         [Space(10)]

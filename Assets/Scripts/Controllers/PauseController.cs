@@ -3,43 +3,38 @@ using UnityEngine;
 
 namespace Game
 {
-    public class PauseController : MonoBehaviour
+    public class PauseController : DependantBehaviour
     {
-        [Dependant]
-        private UIController m_UIController;
-
-        [Dependant]
+        [DependencyInstall, SerializeField]
+        protected PauseScreen m_PauseScreenPrefab;
+        
+        [DependencyInject]
         private InputController m_InputController;
 
-        [Dependant]
+        [DependencyInject]
         private TimeController m_TimeController;
 
-        public GameObject pauseScreenPrefab;
-
-        private bool m_IsPaused;
-        private GameObject m_PauseScreen;
-
+        [DependencyInject("OnPauseScreen")]
+        private PauseScreen m_PauseScreen;
+        
         private void TogglePauseScreen()
         {
-            m_IsPaused = !m_IsPaused;
-            m_PauseScreen.SetActive(m_IsPaused);
-
-            if (m_IsPaused)
+            var isPaused = !m_PauseScreen.IsPaused;
+            m_PauseScreen.IsPaused = isPaused;
+            
+            if (isPaused)
                 m_TimeController.SetOverride(0.0f);
             else
                 m_TimeController.RemoveOverride();
         }
 
-        private void Awake()
+        private void OnPauseScreen(PauseScreen pauseScreen)
         {
-            Dependencies.Bind(this);
+            pauseScreen.IsPaused = false;
         }
 
         private void Start()
         {
-            m_PauseScreen = Instantiate(pauseScreenPrefab, m_UIController.Canvas.transform);
-            m_PauseScreen.SetActive(m_IsPaused);
-
             m_InputController.OnPauseActionDown += TogglePauseScreen;
         }
     }

@@ -43,5 +43,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7019910d0d7cf3e46a5edb6af2e0fdaf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pauseScreenPrefab: {fileID: 305158192838162389, guid: 7dbbff6ca817444409c67b9b33749b6c,
+  m_PauseScreenPrefab: {fileID: 5864687409182276204, guid: 7dbbff6ca817444409c67b9b33749b6c,
     type: 3}

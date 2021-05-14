@@ -1,14 +1,23 @@
 ﻿using Common;
 using UnityEngine;
+using UnityEngine.Rendering.Universal;
 
 namespace Game
 {
     public class CameraController : MonoBehaviour
     {
-        [SerializeField] protected Camera m_MainCamera;
-        [ReadOnlyField] [SerializeField] protected float m_Zoom;
+        [SerializeField]
+        protected Camera m_Camera;
 
-        public Camera MainCamera => m_MainCamera;
+        [SerializeField]
+        protected UniversalAdditionalCameraData m_CameraData;
+
+        [SerializeField, ReadOnlyField]
+        protected float m_Zoom;
+
+        public Camera Camera => m_Camera;
+
+        public UniversalAdditionalCameraData CameraData => m_CameraData;
 
         public float Zoom
         {
@@ -17,19 +26,19 @@ namespace Game
             {
                 var delta = value - m_Zoom;
 
-                m_MainCamera.orthographicSize += delta;
-                var newPosition = m_MainCamera.transform.position;
+                m_Camera.orthographicSize += delta;
+                var newPosition = m_Camera.transform.position;
                 newPosition.y += delta;
-                m_MainCamera.transform.position = newPosition;
+                m_Camera.transform.position = newPosition;
 
                 m_Zoom = value;
             }
         }
 
-        public float Width => m_MainCamera.aspect * Height;
-        public float Height => m_MainCamera.orthographicSize * 2.0f;
+        public float Width => m_Camera.aspect * Height;
+        public float Height => m_Camera.orthographicSize * 2.0f;
         public Vector2 Size => new Vector2(Width, Height);
-        public Vector2 Min => (Vector2)m_MainCamera.transform.position - Size * 0.5f;
-        public Vector2 Max => (Vector2)m_MainCamera.transform.position + Size * 0.5f;
+        public Vector2 Min => (Vector2)m_Camera.transform.position - Size * 0.5f;
+        public Vector2 Max => (Vector2)m_Camera.transform.position + Size * 0.5f;
     }
 }

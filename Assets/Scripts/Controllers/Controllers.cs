@@ -1,40 +1,34 @@
 ﻿using Common;
-using UnityEngine;
 
 namespace Game
 {
-    public class Controllers : MonoBehaviour
+    public class Controllers : DependantBehaviour
     {
-        [DependencyFromPrefab]
+        [DependencyInstall]
         public UIController uiControllerPrefab;
 
-        [DependencyFromPrefab]
+        [DependencyInstall]
         public CameraController cameraControllerPrefab;
 
-        [DependencyFromPrefab]
+        [DependencyInstall]
         public InputController inputControllerPrefab;
 
-        [DependencyFromPrefab]
+        [DependencyInstall]
         public TimeController timeControllerPrefab;
 
-        [DependencyFromPrefab]
+        [DependencyInstall]
         public ScoreController scoreControllerPrefab;
 
-        [DependencyFromPrefab]
+        [DependencyInstall]
         public SpeedController speedControllerPrefab;
 
-        [DependencyFromPrefab]
+        [DependencyInstall]
         public PauseController pauseControllerPrefab;
 
-        [DependencyFromPrefab]
+        [DependencyInstall]
         public RestartController restartControllerPrefab;
 
-        [DependencyFromPrefab]
-        public PlayerController playerControllerPrefab;
-
-        private void Awake()
-        {
-            Dependencies.Install(this);
-        }
+        [DependencyInstall]
+        public Player playerPrefab;
     }
 }
