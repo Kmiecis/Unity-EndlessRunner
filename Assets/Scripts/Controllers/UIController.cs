@@ -5,6 +5,15 @@ namespace Game
 {
     public class UIController : DependantBehaviour
     {
+        [DependencyInstall]
+        public PauseScreen pauseScreenPrefab;
+
+        [DependencyInstall]
+        public GameOverScreen gameOverScreenPrefab;
+
+        [DependencyInstall]
+        public ScoreScreen scoreScreenPrefab;
+
         [DependencyInject("OnCameraController")]
         private CameraController m_CameraController;
 
@@ -20,9 +29,6 @@ namespace Game
         
         private void OnCameraController(CameraController cameraController)
         {
-            if (cameraController == null)
-                return;
-
             var cameraData = cameraController.CameraData;
             var cameraStack = cameraData.cameraStack;
             cameraStack.Add(m_Camera);

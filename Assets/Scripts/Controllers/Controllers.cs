@@ -26,7 +26,10 @@ namespace Game
         public PauseController pauseControllerPrefab;
 
         [DependencyInstall]
-        public RestartController restartControllerPrefab;
+        public GameOverController gameOverControllerPrefab;
+
+        [DependencyInstall]
+        public DeathController deathControllerPrefab;
 
         [DependencyInstall]
         public Player playerPrefab;

@@ -131,6 +131,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 479bcebb74155b34397f19f843fbc5ef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  pauseScreenPrefab: {fileID: 5864687409182276204, guid: 7dbbff6ca817444409c67b9b33749b6c,
+    type: 3}
+  gameOverScreenPrefab: {fileID: 8608942026429814699, guid: f32b00103b5872448ae7d188469caa3d,
+    type: 3}
+  scoreScreenPrefab: {fileID: 8796193137874697564, guid: a4f98740f1e7b4f41b2b2d0409ffaa62,
+    type: 3}
   m_Canvas: {fileID: 2993118544697840599}
   m_Camera: {fileID: 2993118545261387111}
 --- !u!1 &2993118544697840595

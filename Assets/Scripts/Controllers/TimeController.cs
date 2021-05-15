@@ -23,6 +23,7 @@ namespace Game
 
         [SerializeField] [ReadOnlyField] protected float m_CurrentTimeScale = 1.0f;
 
+        private float m_InitialTimeScale;
         private float m_InitialFixedDeltaTime;
         private float m_InitialMaximumDeltaTime;
         private float m_InitialMaximumParticleDeltaTime;
@@ -33,7 +34,7 @@ namespace Game
 
         private void ApplyTimeScale(float value)
         {
-            Time.timeScale = value;
+            Time.timeScale = m_InitialTimeScale * value;
             Time.fixedDeltaTime = m_InitialFixedDeltaTime * value;
             Time.maximumDeltaTime = m_InitialMaximumDeltaTime * value;
             Time.maximumParticleDeltaTime = m_InitialMaximumParticleDeltaTime * value;
@@ -56,16 +57,16 @@ namespace Game
             AddRequest(Time.timeScale, fadeOutDuration);
         }
 
-        public void SetOverride(float timeScale)
+        public void StopTime()
         {
-            RemoveOverride();
+            ResumeTime();
 
-            m_Override = new TimeOverride { targetTimeScale = timeScale, previousTimeScale = Time.timeScale };
+            m_Override = new TimeOverride { targetTimeScale = 0.0f, previousTimeScale = Time.timeScale };
 
             ApplyTimeScale(m_Override.targetTimeScale);
         }
 
-        public void RemoveOverride()
+        public void ResumeTime()
         {
             if (m_Override != null)
             {
@@ -74,7 +75,7 @@ namespace Game
                 m_Override = null;
             }
         }
-
+        
         private void UpdateRequests()
         {
             if (m_Requests.Count > 0 && m_Request == null)
@@ -105,6 +106,7 @@ namespace Game
 
         private void Awake()
         {
+            m_InitialTimeScale = Time.timeScale;
             m_InitialFixedDeltaTime = Time.fixedDeltaTime;
             m_InitialMaximumDeltaTime = Time.maximumDeltaTime;
             m_InitialMaximumParticleDeltaTime = Time.maximumParticleDeltaTime;
@@ -116,6 +118,14 @@ namespace Game
             UpdateRequest();
 
             m_CurrentTimeScale = Time.timeScale;
+        }
+
+        private void OnDestroy()
+        {
+            Time.timeScale = m_InitialTimeScale;
+            Time.fixedDeltaTime = m_InitialFixedDeltaTime;
+            Time.maximumDeltaTime = m_InitialMaximumDeltaTime;
+            Time.maximumParticleDeltaTime = m_InitialMaximumParticleDeltaTime;
         }
     }
 }

@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace Game
 {
-    public class Spawner2D : MonoBehaviour
+    public class Spawner2D : DependantBehaviour
     {
         [DependencyInject]
         private CameraController m_CameraController;
@@ -57,12 +57,7 @@ namespace Game
                 firstObject.Return();
             }
         }
-
-        private void Awake()
-        {
-            Dependencies.Bind(this);
-        }
-
+        
         private void Start()
         {
             Initialize();

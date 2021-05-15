@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace Game
 {
-    public class Player : MonoBehaviour
+    public class Player : DependantBehaviour
     {
         enum EPlayerState
         {
@@ -22,8 +22,14 @@ namespace Game
         [DependencyInject]
         private InputController m_InputController;
 
-        [SerializeField] protected Rigidbody2D m_Rigidbody;
-        [SerializeField] protected Animator m_Animator;
+        [DependencyInject("OnCameraController")]
+        private CameraController m_CameraController;
+
+        [SerializeField]
+        protected Rigidbody2D m_Rigidbody;
+
+        [SerializeField]
+        protected Animator m_Animator;
 
         [Space(10)]
         public float jumpForce = 10.0f;
@@ -32,10 +38,10 @@ namespace Game
         public float offsetVelocity = 2.0f;
         public bool canDestroy = false;
 
-        [SerializeField] [ReadOnlyField] protected bool m_IsAlive = true;
-        [SerializeField] [ReadOnlyField] protected int m_JumpsUsed = 0;
-        [SerializeField] [ReadOnlyField] protected float m_SnareReleaseTime = 0.0f;
-        [SerializeField] [ReadOnlyField] private EPlayerState m_PlayerState = EPlayerState.Running;
+        [SerializeField, ReadOnlyField] protected bool m_IsAlive = true;
+        [SerializeField, ReadOnlyField] protected int m_JumpsUsed = 0;
+        [SerializeField, ReadOnlyField] protected float m_SnareReleaseTime = 0.0f;
+        [SerializeField, ReadOnlyField] private EPlayerState m_PlayerState = EPlayerState.Running;
         private EPlayerState m_AnimatorState = EPlayerState.Running;
 
         public bool IsAlive => m_IsAlive;
@@ -141,9 +147,11 @@ namespace Game
             }
         }
 
-        private void Awake()
+        private void OnCameraController(CameraController cameraController)
         {
-            Dependencies.Bind(this);
+            var position = transform.position;
+            position.x = cameraController.Min.x - 1.0f;
+            transform.position = position;
         }
 
         private void Start()

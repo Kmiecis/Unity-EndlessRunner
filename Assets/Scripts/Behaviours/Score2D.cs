@@ -10,17 +10,22 @@ namespace Game
 
         [Space(10)]
         public int score = 50;
+        
+        protected override void OnPlayerEnter(Player player)
+        {
+            base.OnPlayerEnter(player);
+
+            m_ScoreController.TryIncreaseScore(score);
+        }
 
         private void Awake()
         {
             Dependencies.Bind(this);
         }
 
-        protected override void OnPlayerEnter(Player player)
+        private void OnDestroy()
         {
-            base.OnPlayerEnter(player);
-
-            m_ScoreController.TryIncreaseScore(score);
+            Dependencies.Unbind(this);
         }
     }
 }
