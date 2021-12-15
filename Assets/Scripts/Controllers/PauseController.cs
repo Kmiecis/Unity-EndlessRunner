@@ -1,19 +1,19 @@
-﻿using Common;
+﻿using Common.Injection;
 
 namespace Game
 {
-    public class PauseController : DependantBehaviour
+    public class PauseController : DI_ADependantBehaviour
     {
-        [DependencyInject]
+        [DI_Inject]
         private InputController m_InputController;
 
-        [DependencyInject]
+        [DI_Inject]
         private TimeController m_TimeController;
 
-        [DependencyInject]
+        [DI_Inject]
         private GameOverController m_GameOverController;
 
-        [DependencyInject("OnPauseScreen")]
+        [DI_Inject]
         private PauseScreen m_PauseScreen;
 
         protected bool m_IsPaused;
@@ -34,7 +34,7 @@ namespace Game
                 m_TimeController.ResumeTime();
         }
 
-        private void OnPauseScreen(PauseScreen pauseScreen)
+        private void OnPauseScreenInject(PauseScreen pauseScreen)
         {
             pauseScreen.SetActive(m_IsPaused);
         }

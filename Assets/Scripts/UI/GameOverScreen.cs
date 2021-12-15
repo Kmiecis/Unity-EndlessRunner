@@ -1,11 +1,11 @@
-﻿using Common;
+﻿using Common.Injection;
 using UnityEngine.SceneManagement;
 
 namespace Game
 {
-    public class GameOverScreen : DependantBehaviour
+    public class GameOverScreen : DI_ADependantBehaviour
     {
-        [DependencyInject("OnUIController")]
+        [DI_Inject]
         private UIController m_UIController;
 
         public void SetActive(bool value)
@@ -18,7 +18,7 @@ namespace Game
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         }
 
-        private void OnUIController(UIController uiController)
+        private void OnUIControllerInject(UIController uiController)
         {
             transform.SetParent(uiController.Canvas.transform, false);
         }

@@ -170,7 +170,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 521eebeddd0003c488b60944bf1eeb0a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  poolerProvider: {fileID: 561713600}
 --- !u!4 &561713602
 Transform:
   m_ObjectHideFlags: 0
@@ -220,7 +219,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3849ddd8b9361df4cae56809fe59faec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefab: {fileID: 1797639821867859074, guid: e17f2b16cc636dd4fb86f10251d283cb, type: 3}
+  prefab: {fileID: 0}
   m_Probability: 1
 --- !u!4 &602373402
 Transform:
@@ -265,7 +264,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3849ddd8b9361df4cae56809fe59faec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefab: {fileID: 1797639821867859074, guid: 5d568099a6d802e499f3017ca2df5a7f, type: 3}
+  prefab: {fileID: 0}
   m_Probability: 1
 --- !u!4 &685088593
 Transform:
@@ -310,7 +309,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3849ddd8b9361df4cae56809fe59faec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefab: {fileID: 1797639821867859074, guid: 808e20ff72044084b85ccfc48b4c1361, type: 3}
+  prefab: {fileID: 0}
   m_Probability: 1
 --- !u!4 &882535845
 Transform:
@@ -389,7 +388,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3849ddd8b9361df4cae56809fe59faec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefab: {fileID: 1797639821867859074, guid: 7255c2d04381fcf42bb3ed3ce8936a57, type: 3}
+  prefab: {fileID: 0}
   m_Probability: 1
 --- !u!4 &930365083
 Transform:
@@ -434,7 +433,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3849ddd8b9361df4cae56809fe59faec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefab: {fileID: 1797639821867859074, guid: bbfa28141a64d5c4f848d1d086e0d6e5, type: 3}
+  prefab: {fileID: 0}
   m_Probability: 1
 --- !u!4 &972609581
 Transform:
@@ -557,7 +556,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e591b34878a45ac4abecdfe6f7ac4216, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefab: {fileID: 8245963687012980813, guid: c72dcc1afefa10c4cae87fcd541270d6, type: 3}
+  prefab: {fileID: 0}
 --- !u!114 &1004050714
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -570,7 +569,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 521eebeddd0003c488b60944bf1eeb0a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  poolerProvider: {fileID: 1004050713}
 --- !u!1 &1568260491
 GameObject:
   m_ObjectHideFlags: 0
@@ -615,7 +613,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e591b34878a45ac4abecdfe6f7ac4216, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefab: {fileID: -7272453691105614687, guid: 0eca0152ed427314d83c3f0ddd66e9e9, type: 3}
+  prefab: {fileID: 0}
 --- !u!114 &1568260494
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -628,7 +626,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 521eebeddd0003c488b60944bf1eeb0a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  poolerProvider: {fileID: 1568260493}
 --- !u!1 &1702635381
 GameObject:
   m_ObjectHideFlags: 0
@@ -673,7 +670,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e591b34878a45ac4abecdfe6f7ac4216, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefab: {fileID: 5149215510216791244, guid: 01b332d0441eb8d45b887eb0e8b7c523, type: 3}
+  prefab: {fileID: 0}
 --- !u!114 &1702635384
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -686,7 +683,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 521eebeddd0003c488b60944bf1eeb0a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  poolerProvider: {fileID: 1702635383}
 --- !u!1 &1722956317
 GameObject:
   m_ObjectHideFlags: 0
@@ -731,7 +727,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e591b34878a45ac4abecdfe6f7ac4216, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefab: {fileID: 6599147273726008034, guid: eccc10f91298f1241b09615a8915b2af, type: 3}
+  prefab: {fileID: 0}
 --- !u!114 &1722956320
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -744,7 +740,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 521eebeddd0003c488b60944bf1eeb0a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  poolerProvider: {fileID: 1722956319}
 --- !u!1 &2111996156
 GameObject:
   m_ObjectHideFlags: 0
@@ -774,7 +769,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3849ddd8b9361df4cae56809fe59faec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefab: {fileID: 1797639821867859074, guid: 64b076eb472a84643a6ad59fece90065, type: 3}
+  prefab: {fileID: 0}
   m_Probability: 1
 --- !u!4 &2111996158
 Transform:

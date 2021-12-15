@@ -1,14 +1,16 @@
 ﻿using Common;
+using Common.Extensions;
+using Common.Injection;
 using System.Collections.Generic;
 using UnityEngine;
 
 namespace Game
 {
-    public class Spawner2D : DependantBehaviour
+    public class Spawner2D : DI_ADependantBehaviour
     {
-        [DependencyInject]
+        [DI_Inject]
         private CameraController m_CameraController;
-        
+
         public APoolerProvider poolerProvider;
 
         private List<SpawnerObject2D> m_SpawnerObjects = new List<SpawnerObject2D>();

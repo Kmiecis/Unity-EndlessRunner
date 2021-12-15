@@ -14,22 +14,22 @@ namespace Game
         public event Action OnPauseAction;
         public event Action OnPauseActionUp;
 
-        public bool IsMainButton => CrossPlatformInput.GetKey(KeyCode.Space);
-        public bool IsMainButtonDown => CrossPlatformInput.GetKeyDown(KeyCode.Space);
-        public bool IsMainButtonUp => CrossPlatformInput.GetKeyUp(KeyCode.Space);
+        public bool IsMainButton => CustomInput.GetKey(KeyCode.Space);
+        public bool IsMainButtonDown => CustomInput.GetKeyDown(KeyCode.Space);
+        public bool IsMainButtonUp => CustomInput.GetKeyUp(KeyCode.Space);
 
-        public bool IsPauseButton => CrossPlatformInput.GetKey(KeyCode.Escape);
-        public bool IsPauseButtonDown => CrossPlatformInput.GetKeyDown(KeyCode.Escape);
-        public bool IsPauseButtonUp => CrossPlatformInput.GetKeyUp(KeyCode.Escape);
+        public bool IsPauseButton => CustomInput.GetKey(KeyCode.Escape);
+        public bool IsPauseButtonDown => CustomInput.GetKeyDown(KeyCode.Escape);
+        public bool IsPauseButtonUp => CustomInput.GetKeyUp(KeyCode.Escape);
 
         public void SetMainButtonDown()
         {
-            CrossPlatformInput.SetKeyDown(KeyCode.Space);
+            CustomInput.SetKeyDown(KeyCode.Space);
         }
 
         public void SetMainButtonUp()
         {
-            CrossPlatformInput.SetKeyUp(KeyCode.Space);
+            CustomInput.SetKeyUp(KeyCode.Space);
         }
 
         public void MainActionDown()

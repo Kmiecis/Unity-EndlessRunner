@@ -1,37 +1,37 @@
-﻿using Common;
+﻿using Common.Injection;
 
 namespace Game
 {
-    public class Controllers : DependantBehaviour
+    public class Controllers : DI_ADependantBehaviour
     {
-        [DependencyInstall]
+        [DI_Install]
         public UIController uiControllerPrefab;
 
-        [DependencyInstall]
+        [DI_Install]
         public CameraController cameraControllerPrefab;
 
-        [DependencyInstall]
+        [DI_Install]
         public InputController inputControllerPrefab;
 
-        [DependencyInstall]
+        [DI_Install]
         public TimeController timeControllerPrefab;
 
-        [DependencyInstall]
+        [DI_Install]
         public ScoreController scoreControllerPrefab;
 
-        [DependencyInstall]
+        [DI_Install]
         public SpeedController speedControllerPrefab;
 
-        [DependencyInstall]
+        [DI_Install]
         public PauseController pauseControllerPrefab;
 
-        [DependencyInstall]
+        [DI_Install]
         public GameOverController gameOverControllerPrefab;
 
-        [DependencyInstall]
+        [DI_Install]
         public DeathController deathControllerPrefab;
 
-        [DependencyInstall]
+        [DI_Install]
         public Player playerPrefab;
     }
 }

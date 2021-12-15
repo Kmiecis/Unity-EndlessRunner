@@ -1,20 +1,20 @@
-﻿using Common;
+﻿using Common.Injection;
 using UnityEngine;
 
 namespace Game
 {
-    public class UIController : DependantBehaviour
+    public class UIController : DI_ADependantBehaviour
     {
-        [DependencyInstall]
+        [DI_Install]
         public PauseScreen pauseScreenPrefab;
 
-        [DependencyInstall]
+        [DI_Install]
         public GameOverScreen gameOverScreenPrefab;
 
-        [DependencyInstall]
+        [DI_Install]
         public ScoreScreen scoreScreenPrefab;
 
-        [DependencyInject("OnCameraController")]
+        [DI_Inject]
         private CameraController m_CameraController;
 
         [SerializeField]
@@ -27,7 +27,7 @@ namespace Game
 
         public Camera Camera => m_Camera;
         
-        private void OnCameraController(CameraController cameraController)
+        private void OnCameraControllerInject(CameraController cameraController)
         {
             var cameraData = cameraController.CameraData;
             var cameraStack = cameraData.cameraStack;

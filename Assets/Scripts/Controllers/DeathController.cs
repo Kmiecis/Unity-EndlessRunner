@@ -1,17 +1,17 @@
-﻿using Common;
+﻿using Common.Injection;
 using UnityEngine;
 
 namespace Game
 {
-    public class DeathController : DependantBehaviour
+    public class DeathController : DI_ADependantBehaviour
     {
-        [DependencyInject]
+        [DI_Inject]
         private CameraController m_CameraController;
 
-        [DependencyInject]
+        [DI_Inject]
         private GameOverController m_GameOverController;
 
-        [DependencyInject]
+        [DI_Inject]
         private Player m_Player;
 
         [SerializeField]

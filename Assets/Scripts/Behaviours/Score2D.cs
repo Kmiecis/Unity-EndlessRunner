@@ -1,11 +1,11 @@
-﻿using Common;
+﻿using Common.Injection;
 using UnityEngine;
 
 namespace Game
 {
     public class Score2D : Pick2D
     {
-        [DependencyInject]
+        [DI_Inject]
         private ScoreController m_ScoreController;
 
         [Space(10)]
@@ -20,12 +20,12 @@ namespace Game
 
         private void Awake()
         {
-            Dependencies.Bind(this);
+            DI_Binder.Bind(this);
         }
 
         private void OnDestroy()
         {
-            Dependencies.Unbind(this);
+            DI_Binder.Unbind(this);
         }
     }
 }

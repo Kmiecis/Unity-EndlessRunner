@@ -1,10 +1,10 @@
-﻿using Common;
+﻿using Common.Injection;
 
 namespace Game
 {
-    public class PauseScreen : DependantBehaviour
+    public class PauseScreen : DI_ADependantBehaviour
     {
-        [DependencyInject("OnUIController")]
+        [DI_Inject]
         private UIController m_UIController;
 
         public void SetActive(bool value)
@@ -12,7 +12,7 @@ namespace Game
             gameObject.SetActive(value);
         }
         
-        private void OnUIController(UIController uiController)
+        private void OnUIControllerInject(UIController uiController)
         {
             transform.SetParent(uiController.Canvas.transform, false);
         }

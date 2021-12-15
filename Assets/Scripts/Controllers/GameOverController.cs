@@ -1,20 +1,20 @@
-﻿using Common;
+﻿using Common.Injection;
 
 namespace Game
 {
-    public class GameOverController : DependantBehaviour
+    public class GameOverController : DI_ADependantBehaviour
     {
-        [DependencyInject("OnGameOverScreen")]
+        [DI_Inject]
         private GameOverScreen m_GameOverScreen;
 
-        [DependencyInject]
+        [DI_Inject]
         private TimeController m_TimeController;
 
         protected bool m_IsGameOver;
 
         public bool IsGameOver => m_IsGameOver;
 
-        private void OnGameOverScreen(GameOverScreen gameOverScreen)
+        private void OnGameOverScreenInject(GameOverScreen gameOverScreen)
         {
             gameOverScreen.SetActive(m_IsGameOver);
         }

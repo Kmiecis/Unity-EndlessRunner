@@ -1,11 +1,11 @@
-﻿using Common;
+﻿using Common.Injection;
 using UnityEngine.EventSystems;
 
 namespace Game
 {
-    public class ClickHandler : DependantBehaviour, IPointerDownHandler, IPointerUpHandler
+    public class ClickHandler : DI_ADependantBehaviour, IPointerDownHandler, IPointerUpHandler
     {
-        [DependencyInject]
+        [DI_Inject]
         private InputController m_InputController;
 
         public void OnPointerDown(PointerEventData eventData)

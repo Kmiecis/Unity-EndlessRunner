@@ -1,9 +1,11 @@
 ﻿using Common;
+using Common.Extensions;
+using Common.Injection;
 using UnityEngine;
 
 namespace Game
 {
-    public class Player : DependantBehaviour
+    public class Player : DI_ADependantBehaviour
     {
         enum EPlayerState
         {
@@ -16,13 +18,13 @@ namespace Game
         private readonly int JUMPING_ANIMATOR_ID = Animator.StringToHash("Jumping");
         private readonly int FALLING_ANIMATOR_ID = Animator.StringToHash("Falling");
 
-        [DependencyInject]
+        [DI_Inject]
         private SpeedController m_SpeedController;
 
-        [DependencyInject]
+        [DI_Inject]
         private InputController m_InputController;
 
-        [DependencyInject("OnCameraController")]
+        [DI_Inject]
         private CameraController m_CameraController;
 
         [SerializeField]
@@ -147,7 +149,7 @@ namespace Game
             }
         }
 
-        private void OnCameraController(CameraController cameraController)
+        private void OnCameraControllerInject(CameraController cameraController)
         {
             var position = transform.position;
             position.x = cameraController.Min.x - 1.0f;

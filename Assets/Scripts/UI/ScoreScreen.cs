@@ -1,14 +1,14 @@
-﻿using Common;
+﻿using Common.Injection;
 using UnityEngine.UI;
 
 namespace Game
 {
-    public class ScoreScreen : DependantBehaviour
+    public class ScoreScreen : DI_ADependantBehaviour
     {
-        [DependencyInject("OnUIController")]
+        [DI_Inject]
         private UIController m_UIController;
 
-        [DependencyInject("OnScoreController")]
+        [DI_Inject]
         private ScoreController m_ScoreController;
 
         public Text scoreText;
@@ -18,14 +18,14 @@ namespace Game
             scoreText.text = score.ToString("000 000 000");
         }
 
-        private void OnScoreController(ScoreController scoreController)
+        private void OnScoreControllerInject(ScoreController scoreController)
         {
             scoreController.OnScoreChanged += OnScoreChanged;
 
             OnScoreChanged(0);
         }
 
-        private void OnUIController(UIController uiController)
+        private void OnUIControllerInject(UIController uiController)
         {
             transform.SetParent(uiController.Canvas.transform, false);
         }

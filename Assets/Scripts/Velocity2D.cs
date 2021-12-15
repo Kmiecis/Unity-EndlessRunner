@@ -1,11 +1,11 @@
-﻿using Common;
+﻿using Common.Injection;
 using UnityEngine;
 
 namespace Game
 {
-    public class Velocity2D : DependantBehaviour
+    public class Velocity2D : DI_ADependantBehaviour
     {
-        [DependencyInject]
+        [DI_Inject]
         private SpeedController m_SpeedController;
 
         [SerializeField]
