@@ -1,8 +1,8 @@
-﻿using Common;
-using Common.Extensions;
+﻿using Common.Extensions;
 using Common.Injection;
 using System.Collections.Generic;
 using UnityEngine;
+using RepoolableSpawnerObject2D = Common.Pooling.IRepoolable<Game.SpawnerObject2D>;
 
 namespace Game
 {
@@ -11,13 +11,15 @@ namespace Game
         [DI_Inject]
         private CameraController m_CameraController;
 
-        public APoolerProvider poolerProvider;
+        [SerializeField]
+        private SpawnerObject2DPoolProvider m_PoolProvider;
 
-        private List<SpawnerObject2D> m_SpawnerObjects = new List<SpawnerObject2D>();
+        private List<RepoolableSpawnerObject2D> m_SpawnerObjects = new List<RepoolableSpawnerObject2D>();
 
         private void Initialize()
         {
-            var spawnerObject = poolerProvider.GetPooler().Borrow() as SpawnerObject2D;
+            var spawnerObjectWrapper = m_PoolProvider.Get().Borrow();
+            var spawnerObject = spawnerObjectWrapper.Value;
             var spawnerObjectInitialPosition = Vector2.zero;
             var spawnerObjectMinX = spawnerObject.Min.x;
             var spawnMinX = m_CameraController.Min.x;
@@ -29,37 +31,40 @@ namespace Game
             }
 
             spawnerObject.transform.position = spawnerObjectInitialPosition;
-            m_SpawnerObjects.Add(spawnerObject);
+            m_SpawnerObjects.Add(spawnerObjectWrapper);
         }
 
         private void UpdateSpawn()
         {
-            var lastObject = m_SpawnerObjects.Last();
+            var lastObjectWrapper = m_SpawnerObjects.Last();
+            var lastObject = lastObjectWrapper.Value;
             var lastMaxX = lastObject.Max.x;
             var spawnMaxX = m_CameraController.Max.x;
 
             if (lastMaxX < spawnMaxX)
             {
-                var newSpawnerObject = poolerProvider.GetPooler().Borrow() as SpawnerObject2D;
+                var newSpawnerObjectWrapper = m_PoolProvider.Get().Borrow();
+                var newSpawnerObject = newSpawnerObjectWrapper.Value;
                 var newSizeX = newSpawnerObject.Size.x;
                 newSpawnerObject.transform.position = new Vector2(lastMaxX + newSizeX * 0.5f, 0.0f);
-                m_SpawnerObjects.Add(newSpawnerObject);
+                m_SpawnerObjects.Add(newSpawnerObjectWrapper);
             }
         }
 
         private void UpdateRecycle()
         {
-            var firstObject = m_SpawnerObjects.First();
+            var firstObjectWrapper = m_SpawnerObjects.First();
+            var firstObject = firstObjectWrapper.Value;
             var firstMaxX = firstObject.Max.x;
             var recycleMinX = m_CameraController.Min.x;
 
             if (firstMaxX < recycleMinX)
             {
                 m_SpawnerObjects.RemoveAt(0);
-                firstObject.Return();
+                firstObjectWrapper.Dispose();
             }
         }
-        
+
         private void Start()
         {
             Initialize();

@@ -35,5 +35,12 @@ namespace Game
             m_Started = true;
             SetVelocity(m_SpeedController.CurrentSpeed);
         }
+
+        protected override void OnDestroy()
+        {
+            m_SpeedController.OnSpeedChanged -= SetVelocity;
+
+            base.OnDestroy();
+        }
     }
 }

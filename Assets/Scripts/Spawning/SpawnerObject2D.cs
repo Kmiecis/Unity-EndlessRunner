@@ -1,10 +1,11 @@
 ﻿using Common;
+using Common.Pooling;
 using UnityEngine;
 
 namespace Game
 {
     [ExecuteInEditMode]
-    public class SpawnerObject2D : PoolingObject
+    public class SpawnerObject2D : ReusableBehaviour
     {
         [ReadOnlyField] [SerializeField] protected Range2 m_Range;
 
