@@ -1,4 +1,5 @@
 ﻿using Common;
+using Common.Mathematics;
 using Common.Pooling;
 using UnityEngine;
 
@@ -7,7 +8,7 @@ namespace Game
     [ExecuteInEditMode]
     public class SpawnerObject2D : ReusableBehaviour
     {
-        [ReadOnlyField] [SerializeField] protected Range2 m_Range;
+        [SerializeField, ReadOnly] protected Range2 m_Range;
 
         public Vector2 Min => (Vector2)transform.position + m_Range.min;
         public Vector2 Max => (Vector2)transform.position + m_Range.max;

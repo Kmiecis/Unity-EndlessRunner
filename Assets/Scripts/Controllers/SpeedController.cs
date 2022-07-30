@@ -15,7 +15,7 @@ namespace Game
         public float windUpDuration = 2.0f;
         public float windDownDuration = 2.0f;
 
-        [SerializeField, ReadOnlyField] protected float m_CurrentSpeed;
+        [SerializeField, ReadOnly] protected float m_CurrentSpeed;
 
         protected bool m_IsHolded = false;
 

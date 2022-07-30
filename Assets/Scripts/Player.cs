@@ -40,10 +40,10 @@ namespace Game
         public float offsetVelocity = 2.0f;
         public bool canDestroy = false;
 
-        [SerializeField, ReadOnlyField] protected bool m_IsAlive = true;
-        [SerializeField, ReadOnlyField] protected int m_JumpsUsed = 0;
-        [SerializeField, ReadOnlyField] protected float m_SnareReleaseTime = 0.0f;
-        [SerializeField, ReadOnlyField] private EPlayerState m_PlayerState = EPlayerState.Running;
+        [SerializeField, ReadOnly] protected bool m_IsAlive = true;
+        [SerializeField, ReadOnly] protected int m_JumpsUsed = 0;
+        [SerializeField, ReadOnly] protected float m_SnareReleaseTime = 0.0f;
+        [SerializeField, ReadOnly] private EPlayerState m_PlayerState = EPlayerState.Running;
         private EPlayerState m_AnimatorState = EPlayerState.Running;
 
         public bool IsAlive => m_IsAlive;

@@ -12,7 +12,7 @@ namespace Game
         [SerializeField]
         protected UniversalAdditionalCameraData m_CameraData;
 
-        [SerializeField, ReadOnlyField]
+        [SerializeField, ReadOnly]
         protected float m_Zoom;
 
         public Camera Camera => m_Camera;

@@ -21,7 +21,8 @@ namespace Game
             public float initialDuration;
         }
 
-        [SerializeField] [ReadOnlyField] protected float m_CurrentTimeScale = 1.0f;
+        [SerializeField, ReadOnly]
+        protected float m_CurrentTimeScale = 1.0f;
 
         private float m_InitialTimeScale;
         private float m_InitialFixedDeltaTime;
