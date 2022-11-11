@@ -1,24 +1,27 @@
 ﻿using Common.Extensions;
 using Common.Injection;
+using Common.Pooling;
+using Common.Providers;
 using System.Collections.Generic;
 using UnityEngine;
 using RepoolableSpawnerObject2D = Common.Pooling.IRepoolable<Game.SpawnerObject2D>;
 
 namespace Game
 {
-    public class Spawner2D : DI_ADependantBehaviour
+    public class Spawner2D : MonoBehaviour
     {
         [DI_Inject]
         private CameraController m_CameraController;
 
         [SerializeField]
-        private SpawnerObject2DPoolProvider m_PoolProvider;
+        private BehaviourPool<SpawnerObject2D>[] m_Spawners;
 
+        private RandomProvider<BehaviourPool<SpawnerObject2D>> m_SpawnerProvider;
         private List<RepoolableSpawnerObject2D> m_SpawnerObjects = new List<RepoolableSpawnerObject2D>();
 
         private void Initialize()
         {
-            var spawnerObjectWrapper = m_PoolProvider.Get().Borrow();
+            var spawnerObjectWrapper = m_SpawnerProvider.Get().AsRepoolable();
             var spawnerObject = spawnerObjectWrapper.Value;
             var spawnerObjectInitialPosition = Vector2.zero;
             var spawnerObjectMinX = spawnerObject.Min.x;
@@ -43,7 +46,7 @@ namespace Game
 
             if (lastMaxX < spawnMaxX)
             {
-                var newSpawnerObjectWrapper = m_PoolProvider.Get().Borrow();
+                var newSpawnerObjectWrapper = m_SpawnerProvider.Get().AsRepoolable();
                 var newSpawnerObject = newSpawnerObjectWrapper.Value;
                 var newSizeX = newSpawnerObject.Size.x;
                 newSpawnerObject.transform.position = new Vector2(lastMaxX + newSizeX * 0.5f, 0.0f);
@@ -65,6 +68,13 @@ namespace Game
             }
         }
 
+        private void Awake()
+        {
+            DI_Binder.Bind(this);
+
+            m_SpawnerProvider = new RandomProvider<BehaviourPool<SpawnerObject2D>>(m_Spawners);
+        }
+
         private void Start()
         {
             Initialize();
@@ -74,6 +84,11 @@ namespace Game
         {
             UpdateRecycle();
             UpdateSpawn();
+        }
+
+        private void OnDestroy()
+        {
+            DI_Binder.Unbind(this);
         }
     }
 }

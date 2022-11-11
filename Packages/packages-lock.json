@@ -5,21 +5,28 @@
       "depth": 0,
       "source": "git",
       "dependencies": {},
-      "hash": "21c59435035381704138642bd935d0c435335c36"
+      "hash": "fd7489549d0b11a2982396a1584eaa17e8b495ab"
+    },
+    "com.common.coroutines": {
+      "version": "https://github.com/kmiecis/unity-package-coroutines.git",
+      "depth": 0,
+      "source": "git",
+      "dependencies": {},
+      "hash": "6f28c87ad64006e8d58fb333b38a51c6cf2bb1b7"
     },
     "com.common.dynamic.injection": {
       "version": "https://github.com/kmiecis/unity-package-dynamicinjection.git",
       "depth": 0,
       "source": "git",
       "dependencies": {},
-      "hash": "9d7e674b0c7613fc25ee11e31f1fcd63b697db6f"
+      "hash": "3c5a4cae9cd8f96064c8e64ca9d3614cc2ffea47"
     },
     "com.common.object.pooling": {
       "version": "https://github.com/kmiecis/unity-package-objectpooling.git",
       "depth": 0,
       "source": "git",
       "dependencies": {},
-      "hash": "f65a5c5f8e74049b037dfa6c8183bb0bc35b7c9a"
+      "hash": "c8ab7491f8505ffbd2e92542fdf9fec779176c3a"
     },
     "com.unity.burst": {
       "version": "1.6.5",

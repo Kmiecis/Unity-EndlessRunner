@@ -1,6 +1,7 @@
 {
   "dependencies": {
     "com.common.assemblies": "https://github.com/kmiecis/unity-common.git",
+    "com.common.coroutines": "https://github.com/kmiecis/unity-package-coroutines.git",
     "com.common.dynamic.injection": "https://github.com/kmiecis/unity-package-dynamicinjection.git",
     "com.common.object.pooling": "https://github.com/kmiecis/unity-package-objectpooling.git",
     "com.unity.ide.visualstudio": "2.0.15",

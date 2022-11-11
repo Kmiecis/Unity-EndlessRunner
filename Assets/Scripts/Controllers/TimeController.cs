@@ -1,9 +1,11 @@
 ﻿using Common;
 using UnityEngine;
 using System.Collections.Generic;
+using Common.Injection;
 
 namespace Game
 {
+    [DI_Install]
     public class TimeController : MonoBehaviour
     {
         private class TimeOverride
@@ -111,6 +113,8 @@ namespace Game
             m_InitialFixedDeltaTime = Time.fixedDeltaTime;
             m_InitialMaximumDeltaTime = Time.maximumDeltaTime;
             m_InitialMaximumParticleDeltaTime = Time.maximumParticleDeltaTime;
+
+            DI_Binder.Bind(this);
         }
         
         private void Update()
@@ -123,6 +127,8 @@ namespace Game
 
         private void OnDestroy()
         {
+            DI_Binder.Unbind(this);
+
             Time.timeScale = m_InitialTimeScale;
             Time.fixedDeltaTime = m_InitialFixedDeltaTime;
             Time.maximumDeltaTime = m_InitialMaximumDeltaTime;

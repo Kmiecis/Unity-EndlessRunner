@@ -1,8 +1,10 @@
 ﻿using Common.Injection;
+using UnityEngine;
 
 namespace Game
 {
-    public class PauseController : DI_ADependantBehaviour
+    [DI_Install]
+    public class PauseController : MonoBehaviour
     {
         [DI_Inject]
         private InputController m_InputController;
@@ -39,9 +41,19 @@ namespace Game
             pauseScreen.SetActive(m_IsPaused);
         }
 
+        private void Awake()
+        {
+            DI_Binder.Bind(this);
+        }
+
         private void Start()
         {
             m_InputController.OnPauseActionDown += TogglePauseScreen;
+        }
+
+        private void OnDestroy()
+        {
+            DI_Binder.Unbind(this);
         }
     }
 }

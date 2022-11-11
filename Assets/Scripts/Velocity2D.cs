@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace Game
 {
-    public class Velocity2D : DI_ADependantBehaviour
+    public class Velocity2D : MonoBehaviour
     {
         [DI_Inject]
         private SpeedController m_SpeedController;
@@ -22,6 +22,11 @@ namespace Game
             m_Rigidbody.velocity = speed * direction * multiplier;
         }
 
+        private void Awake()
+        {
+            DI_Binder.Bind(this);
+        }
+
         private void OnEnable()
         {
             if (m_Started)
@@ -36,11 +41,11 @@ namespace Game
             SetVelocity(m_SpeedController.CurrentSpeed);
         }
 
-        protected override void OnDestroy()
+        private void OnDestroy()
         {
             m_SpeedController.OnSpeedChanged -= SetVelocity;
 
-            base.OnDestroy();
+            DI_Binder.Unbind(this);
         }
     }
 }

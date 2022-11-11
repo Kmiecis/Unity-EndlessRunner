@@ -1,9 +1,12 @@
 ﻿using Common;
+using Common.Coroutines;
+using Common.Injection;
 using System;
 using UnityEngine;
 
 namespace Game
 {
+    [DI_Install]
     public class SpeedController : MonoBehaviour
     {
         public event Action<float> OnSpeedChanged;
@@ -41,7 +44,9 @@ namespace Game
                 CurrentSpeed = Mathf.Lerp(current, target, t);
             }
 
-            StartCoroutine(CoroutineUtility.InvokeOverTimeNormalized(WindUp, windUpDuration));
+            UCoroutine.YieldTimeNormalized(windUpDuration)
+                .Into(WindUp)
+                .Start(this);
         }
         
         public void Stop()
@@ -54,7 +59,9 @@ namespace Game
                 CurrentSpeed = Mathf.Lerp(current, target, t);
             }
 
-            StartCoroutine(CoroutineUtility.InvokeOverTimeNormalized(WindDown, windDownDuration));
+            UCoroutine.YieldTimeNormalized(windDownDuration)
+                .Into(WindDown)
+                .Start(this);
         }
 
         private bool CanUpdateSpeed()
@@ -65,6 +72,11 @@ namespace Game
         private void UpdateSpeed()
         {
             CurrentSpeed = Mathf.Min(m_CurrentSpeed + acceleration * Time.deltaTime, targetSpeed);
+        }
+
+        private void Awake()
+        {
+            DI_Binder.Bind(this);
         }
 
         private void Start()
@@ -86,6 +98,8 @@ namespace Game
         private void OnDestroy()
         {
             OnSpeedChanged = null;
+
+            DI_Binder.Unbind(this);
         }
     }
 }

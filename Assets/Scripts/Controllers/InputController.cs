@@ -1,9 +1,11 @@
 ﻿using Common;
+using Common.Injection;
 using System;
 using UnityEngine;
 
 namespace Game
 {
+    [DI_Install]
     public class InputController : MonoBehaviour
     {
         public event Action OnMainActionDown;
@@ -62,6 +64,11 @@ namespace Game
             OnPauseActionUp?.Invoke();
         }
 
+        private void Awake()
+        {
+            DI_Binder.Bind(this);
+        }
+
         private void Update()
         {
             if (IsMainButtonDown)
@@ -88,6 +95,8 @@ namespace Game
             OnPauseActionDown = null;
             OnPauseAction = null;
             OnPauseActionUp = null;
+
+            DI_Binder.Unbind(this);
         }
     }
 }

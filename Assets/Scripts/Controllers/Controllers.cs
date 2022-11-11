@@ -1,37 +1,32 @@
-﻿using Common.Injection;
+﻿using UnityEngine;
 
 namespace Game
 {
-    public class Controllers : DI_ADependantBehaviour
+    public class Controllers : MonoBehaviour
     {
-        [DI_Install]
         public UIController uiControllerPrefab;
-
-        [DI_Install]
         public CameraController cameraControllerPrefab;
-
-        [DI_Install]
         public InputController inputControllerPrefab;
-
-        [DI_Install]
         public TimeController timeControllerPrefab;
-
-        [DI_Install]
         public ScoreController scoreControllerPrefab;
-
-        [DI_Install]
         public SpeedController speedControllerPrefab;
-
-        [DI_Install]
         public PauseController pauseControllerPrefab;
-
-        [DI_Install]
         public GameOverController gameOverControllerPrefab;
-
-        [DI_Install]
         public DeathController deathControllerPrefab;
-
-        [DI_Install]
         public Player playerPrefab;
+
+        private void Awake()
+        {
+            uiControllerPrefab = Instantiate(uiControllerPrefab);
+            cameraControllerPrefab = Instantiate(cameraControllerPrefab);
+            inputControllerPrefab = Instantiate(inputControllerPrefab);
+            timeControllerPrefab = Instantiate(timeControllerPrefab);
+            scoreControllerPrefab = Instantiate(scoreControllerPrefab);
+            speedControllerPrefab = Instantiate(speedControllerPrefab);
+            pauseControllerPrefab = Instantiate(pauseControllerPrefab);
+            gameOverControllerPrefab = Instantiate(gameOverControllerPrefab);
+            deathControllerPrefab = Instantiate(deathControllerPrefab);
+            playerPrefab = Instantiate(playerPrefab);
+        }
     }
 }

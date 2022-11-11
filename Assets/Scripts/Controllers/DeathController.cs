@@ -3,7 +3,8 @@ using UnityEngine;
 
 namespace Game
 {
-    public class DeathController : DI_ADependantBehaviour
+    [DI_Install]
+    public class DeathController : MonoBehaviour
     {
         [DI_Inject]
         private CameraController m_CameraController;
@@ -42,12 +43,22 @@ namespace Game
             }
         }
 
+        private void Awake()
+        {
+            DI_Binder.Bind(this);
+        }
+
         private void Update()
         {
             if (m_Player.IsAlive)
             {
                 UpdatePlayer();
             }
+        }
+
+        private void OnDestroy()
+        {
+            DI_Binder.Unbind(this);
         }
 
 #if UNITY_EDITOR

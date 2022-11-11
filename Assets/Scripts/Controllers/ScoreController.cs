@@ -1,9 +1,11 @@
 ﻿using Common;
+using Common.Injection;
 using System;
 using UnityEngine;
 
 namespace Game
 {
+    [DI_Install]
     public class ScoreController : MonoBehaviour
     {
         public event Action<int> OnScoreChanged;
@@ -49,7 +51,12 @@ namespace Game
                 m_ScoreAccumulator -= 1.0f;
             }
         }
-        
+
+        private void Awake()
+        {
+            DI_Binder.Bind(this);
+        }
+
         private void Update()
         {
             if (CanUpdateScore())
@@ -61,6 +68,8 @@ namespace Game
         private void OnDestroy()
         {
             OnScoreChanged = null;
+
+            DI_Binder.Unbind(this);
         }
     }
 }

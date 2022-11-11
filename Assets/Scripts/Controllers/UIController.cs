@@ -3,15 +3,11 @@ using UnityEngine;
 
 namespace Game
 {
-    public class UIController : DI_ADependantBehaviour
+    [DI_Install]
+    public class UIController : MonoBehaviour
     {
-        [DI_Install]
         public PauseScreen pauseScreenPrefab;
-
-        [DI_Install]
         public GameOverScreen gameOverScreenPrefab;
-
-        [DI_Install]
         public ScoreScreen scoreScreenPrefab;
 
         [DI_Inject]
@@ -32,6 +28,20 @@ namespace Game
             var cameraData = cameraController.CameraData;
             var cameraStack = cameraData.cameraStack;
             cameraStack.Add(m_Camera);
+        }
+
+        private void Awake()
+        {
+            DI_Binder.Bind(this);
+
+            pauseScreenPrefab = Instantiate(pauseScreenPrefab);
+            gameOverScreenPrefab = Instantiate(gameOverScreenPrefab);
+            scoreScreenPrefab = Instantiate(scoreScreenPrefab);
+        }
+
+        private void OnDestroy()
+        {
+            DI_Binder.Unbind(this);
         }
     }
 }

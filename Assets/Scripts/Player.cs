@@ -5,7 +5,8 @@ using UnityEngine;
 
 namespace Game
 {
-    public class Player : DI_ADependantBehaviour
+    [DI_Install]
+    public class Player : MonoBehaviour
     {
         enum EPlayerState
         {
@@ -156,6 +157,11 @@ namespace Game
             transform.position = position;
         }
 
+        private void Awake()
+        {
+            DI_Binder.Bind(this);
+        }
+
         private void Start()
         {
             m_InputController.OnMainActionDown += TryJump;
@@ -167,6 +173,11 @@ namespace Game
             UpdateVelocity();
             UpdateJumping();
             UpdateAnimator();
+        }
+
+        private void OnDestroy()
+        {
+            DI_Binder.Unbind(this);
         }
 
         private void OnCollisionEnter2D(Collision2D collision)

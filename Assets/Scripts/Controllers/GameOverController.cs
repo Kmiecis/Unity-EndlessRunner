@@ -1,8 +1,10 @@
 ﻿using Common.Injection;
+using UnityEngine;
 
 namespace Game
 {
-    public class GameOverController : DI_ADependantBehaviour
+    [DI_Install]
+    public class GameOverController : MonoBehaviour
     {
         [DI_Inject]
         private GameOverScreen m_GameOverScreen;
@@ -24,6 +26,16 @@ namespace Game
             m_IsGameOver = true;
             m_GameOverScreen.SetActive(m_IsGameOver);
             m_TimeController.StopTime();
+        }
+
+        private void Awake()
+        {
+            DI_Binder.Bind(this);
+        }
+
+        private void OnDestroy()
+        {
+            DI_Binder.Unbind(this);
         }
     }
 }
