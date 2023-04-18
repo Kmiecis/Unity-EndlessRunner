@@ -5,7 +5,7 @@
       "depth": 0,
       "source": "git",
       "dependencies": {},
-      "hash": "fd7489549d0b11a2982396a1584eaa17e8b495ab"
+      "hash": "bb549becdaca9bd029374e21fb76314e9086ec92"
     },
     "com.common.coroutines": {
       "version": "https://github.com/kmiecis/unity-package-coroutines.git",
